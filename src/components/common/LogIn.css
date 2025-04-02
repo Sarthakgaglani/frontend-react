@@ -1,0 +1,67 @@
+/* LogIn.css */
+.login-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    background-color: #ffdAB9; /* Light Orange */
+}
+
+.login-title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.login-card {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    text-align: center;
+    width: 350px;
+}
+
+.login-card h2 {
+    color: #333;
+}
+
+.login-field {
+    margin-bottom: 10px;
+}
+
+.login-field label {
+    display: block;
+    color: #555;
+}
+
+.login-field input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffa07a; /* Soft orange */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #ff8c66; /* Darker orange */
+}
