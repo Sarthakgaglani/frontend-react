@@ -43,8 +43,7 @@ const Landing = () => {
         <h1 style={{fontSize:"57px"}}>Pocket Buddy</h1>
         <p style={{fontSize:"18px"}}>Find the best street food & restaurant deals near you!</p>
         <div className="search-bar">
-          <input type="text" placeholder="Search for restaurants, stalls, or cuisines..." />
-          <button>Search</button>
+          
         </div>
       </div>
 
