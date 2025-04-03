@@ -1,12 +1,10 @@
-
-
 import React, { useEffect, useState } from "react";
-import "./TopDeals.css";
+import "./IndianFood.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const TopDeals = () => {
+const IndianFood = () => {
     const [deals, setDeals] = useState([]);
     const [searchQuery, setSearchQuery] = useState(""); 
     const [filteredDeals, setFilteredDeals] = useState([]);
@@ -15,23 +13,25 @@ const TopDeals = () => {
         fetch("http://localhost:8000/getoffers/")  
             .then(response => response.json())
             .then(data => {
-                setDeals(data);
-                setFilteredDeals(data);
+                // Filter to include only deals with Indian Food
+                const indianDeals = data.filter(deal => deal.FoodType === "Indian");
+                setDeals(indianDeals);
+                setFilteredDeals(indianDeals);
             })
             .catch(error => console.error("Error fetching deals:", error));
     }, []);
 
     // Handle Search
     const handleSearch = (e) => {
-        const query = e.target.value.toLowerCase(); // Convert search input to lowercase
-        setSearchQuery(e.target.value); // Store the original input (without converting)
+        const query = e.target.value.toLowerCase();
+        setSearchQuery(e.target.value); 
     
         if (query === "") {
             setFilteredDeals(deals);
         } else {
             const filtered = deals.filter((deal) =>
                 deal.OfferName.toLowerCase().includes(query) || 
-                (deal.restaurant?.Name && deal.restaurant?.Name.toLowerCase().includes(query)) // Search by restaurant name
+                (deal.restaurant?.Name && deal.restaurant?.Name.toLowerCase().includes(query))
             );
             setFilteredDeals(filtered);
         }
@@ -47,7 +47,6 @@ const TopDeals = () => {
                         <Link to="/foodstalls" className="nav-item">Indian Food</Link>
                         <Link to="/deals" className="nav-item">Top Deals</Link>
                         <Link to="/myoffers" className="nav-item">My Offers</Link>
-                        
                     </div>
                     <div className="user-profile">
                         <FontAwesomeIcon icon={faUser} />
@@ -72,7 +71,7 @@ const TopDeals = () => {
 
             {/* Deals Section */}
             <div className="deals-section">
-                <h2 className="deals-heading">🔥 Available Deals</h2>
+                <h2 className="deals-heading">🍛 Indian Food Deals</h2>
                 {filteredDeals.length > 0 ? (
                     <div className="deals-container">
                         {filteredDeals.map((deal) => (
@@ -90,13 +89,11 @@ const TopDeals = () => {
                         ))}
                     </div>
                 ) : (
-                    <p className="no-deals">No results found for "{searchQuery}". Try another search!</p>
+                    <p className="no-deals">No Indian food deals found for "{IndianFood}". Try another search!</p>
                 )}
             </div>
         </div>
     );
 };
 
-export { TopDeals };
-
-
+export { IndianFood };

@@ -145,11 +145,11 @@ const PocketBuddyHome = () => {
       <div className="categories">
         <h2>Explore</h2>
         <div className="category-list">
-          <div className="category-card category-restaurants">
-            <Link to="/topdeals" className="category-card category-streetfood">🍴Top Offers</Link>
+          <div className="category-card category-offers">
+            <Link to="/topdeals" className="category-card category-offers">🍴Top Offers</Link>
           </div>
           <div className="category-card category-streetfood">
-            <Link to="/foodstalls" className="category-card category-streetfood">🌮 Street Food Stalls</Link>
+            <Link to="/foodstalls" className="category-card category-streetfood">🌮 Indian Food</Link>
           </div>
           <div className="category-card category-deals">
             <Link to="/deals" className="category-card category-deals">🎁 Deals</Link>

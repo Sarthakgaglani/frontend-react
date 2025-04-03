@@ -43,6 +43,7 @@ const Deals = () => {
                     <div className="nav-links">
                         <Link to="/home" className="nav-item">Home</Link>
                         <Link to="/topdeals" className="nav-item">All Offers</Link>
+                        <Link to="/foodstalls" className="nav-item">Indian Food</Link>
                         <Link to="/deals" className="nav-item">Top Deals</Link>
                         <Link to="/myoffers" className="nav-item">My Offers</Link>
                         
@@ -78,6 +79,7 @@ const Deals = () => {
                                 <div className="deal-card">
                                     <img src={deal.image_url} alt={deal.OfferName} />
                                     <h3>{deal.OfferName} - {deal.Discount}% Off</h3>
+                                    <p><strong>Food Type:</strong> {deal.FoodType}</p>
                                     <p><strong>Restaurant Name:</strong> {deal.restaurant?.Name}</p>
                                     <p><strong>📍 Location:</strong> {deal.location?.title}, {deal.location?.Location}</p>
                                     <p><strong>📅 Valid:</strong> {new Date(deal.StartDate).toLocaleDateString()} - 

@@ -196,14 +196,14 @@ const Landing = () => {
       <div className="categories">
         <h2>Explore</h2>
         <div className="category-list">
-          <div className="category-card category-restaurants">
-            <button onClick={() => handleNavigation("/topdeals")} className="category-card category-streetfood">
+          <div className="category-card category-offers">
+            <button onClick={() => handleNavigation("/topdeals")} className="category-card category-offers">
               🍴 Top Offers
             </button>
           </div>
           <div className="category-card category-streetfood">
             <button onClick={() => handleNavigation("/foodstalls")} className="category-card category-streetfood">
-              🌮 Street Food Stalls
+              🌮 Indian Food
             </button>
           </div>
           <div className="category-card category-deals">
