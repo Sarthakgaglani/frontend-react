@@ -24,6 +24,7 @@ import { Landing } from "./components/Home/Landing";
 import {AdminDeleteOffer} from "./components/admin/AdminDeleteOffer";
 import { ManageOffer } from "./components/admin/ManageOffer";
 import { ResetPassword } from "./components/common/ResetPassword";
+import { Deals } from "./components/Home/Deals";
 // import { Details } from "./components/Home/Details";
 
 // import { ContactUs } from "./components/Home/ContactUs";
@@ -60,7 +61,7 @@ function App() {
           {/* <Route path="/manageoffer" element={<ManageOffer/>}></Route> */}
           <Route path="/manage-offers/:id" element={<ManageOffer/>}></Route>
           <Route path="/resetpassword/:token" element={<ResetPassword/>}></Route>
-          
+          <Route path="/deals" element={<Deals/>}></Route>
           
         </Routes>
 

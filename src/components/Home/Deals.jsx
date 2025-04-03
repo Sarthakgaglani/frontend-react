@@ -1,12 +1,10 @@
-
-
 import React, { useEffect, useState } from "react";
-import "./TopDeals.css";
+import "./Deals.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const TopDeals = () => {
+const Deals = () => {
     const [deals, setDeals] = useState([]);
     const [searchQuery, setSearchQuery] = useState(""); 
     const [filteredDeals, setFilteredDeals] = useState([]);
@@ -15,8 +13,9 @@ const TopDeals = () => {
         fetch("http://localhost:8000/getoffers/")  
             .then(response => response.json())
             .then(data => {
-                setDeals(data);
-                setFilteredDeals(data);
+                const sortedDeals = data.sort((a, b) => b.Discount - a.Discount); // Sort deals by discount (high to low)
+                setDeals(sortedDeals);
+                setFilteredDeals(sortedDeals);
             })
             .catch(error => console.error("Error fetching deals:", error));
     }, []);
@@ -33,7 +32,7 @@ const TopDeals = () => {
                 deal.OfferName.toLowerCase().includes(query) || 
                 (deal.restaurant?.Name && deal.restaurant?.Name.toLowerCase().includes(query)) // Search by restaurant name
             );
-            setFilteredDeals(filtered);
+            setFilteredDeals(filtered.sort((a, b) => b.Discount - a.Discount)); // Ensure sorted order after filtering
         }
     };
 
@@ -71,12 +70,12 @@ const TopDeals = () => {
 
             {/* Deals Section */}
             <div className="deals-section">
-                <h2 className="deals-heading">🔥 Available Deals</h2>
+                <h2 className="deals-heading">🔥 High Demand Offers</h2>
                 {filteredDeals.length > 0 ? (
                     <div className="deals-container">
                         {filteredDeals.map((deal) => (
                             <Link to={`/deal/${deal._id}`} key={deal._id} className="deal-link">   
-                                <div key={deal.id} className="deal-card">
+                                <div className="deal-card">
                                     <img src={deal.image_url} alt={deal.OfferName} />
                                     <h3>{deal.OfferName} - {deal.Discount}% Off</h3>
                                     <p><strong>Restaurant Name:</strong> {deal.restaurant?.Name}</p>
@@ -95,6 +94,4 @@ const TopDeals = () => {
     );
 };
 
-export { TopDeals };
-
-
+export { Deals };

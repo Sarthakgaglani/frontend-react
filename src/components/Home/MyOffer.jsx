@@ -27,7 +27,9 @@ const MyOffer = () => {
             <div className="hero">
                 <nav className="navbar">
                     <div className="nav-links">
+                        <Link to="/home" className="nav-item">Home</Link>
                         <Link to="/topdeals" className="nav-item">All Restaurants</Link>
+                        <Link to="/deals" className="nav-item">Top Deals</Link>
                         <Link to="/myoffers" className="nav-item">My Offers</Link>
                     </div>
                     <div className="user-profile">
