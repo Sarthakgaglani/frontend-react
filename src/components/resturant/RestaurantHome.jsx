@@ -95,13 +95,13 @@
 
 
 import React from "react";
-import "./PocketBuddyHome.css";
+import "./RestaurantHome.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
-const PocketBuddyHome = () => {
+const RestaurantHome = () => {
   const languages = [
     "English", "Spanish", "French", "German", "Chinese", "Hindi","Gujarati", "Arabic", "Portuguese", "Bengali", "Russian",
     "Japanese", "Punjabi", "Korean", "Italian", "Turkish", "Dutch", "Swedish", "Greek", "Hebrew", "Thai",
@@ -123,9 +123,10 @@ const PocketBuddyHome = () => {
         {/* Navigation Bar inside Hero Section */}
         <nav className="navbar">
           <div className="nav-links">
-            <Link to="/home" className="nav-item">Home</Link>
+            <Link to="/resthome" className="nav-item">Home</Link>
             <Link to="/about" className="nav-item">About Us</Link>
             <Link to="/contact" className="nav-item">Contact Us</Link>
+            <Link to="/hero" className="nav-item">Add Offer</Link>
             
           </div>
           <div className="user-profile" style={{ width: "50px" }}>
@@ -136,6 +137,7 @@ const PocketBuddyHome = () => {
         </nav>
         
         <h1 style={{fontSize:"57px"}}>Pocket Buddy</h1>
+        <h2 style={{fontSize:"45px"}}>Restaurant Owners</h2>
         <p style={{fontSize:"18px"}}>Find the best street food & restaurant deals near you!</p>
         
       </div>
@@ -219,4 +221,4 @@ const PocketBuddyHome = () => {
   );
 };
 
-export { PocketBuddyHome };
+export { RestaurantHome };

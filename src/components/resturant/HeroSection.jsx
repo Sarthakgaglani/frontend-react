@@ -242,11 +242,11 @@ const HeroSection = () => {
             <div className="hero">
                 <nav className="navbar">
                     <div className="nav-links">
-                        <Link to="/home" className="nav-item">Home</Link>
+                        <Link to="/resthome" className="nav-item">Home</Link>
                         <Link to="/about" className="nav-item">About Us</Link>
                         <Link to="/contact" className="nav-item">Contact Us</Link>
-                        <Link to="/login" className="nav-item">Log in</Link>
-                        <Link to="/signup" className="nav-item">Sign up</Link>
+                        <Link to="/hero" className="nav-item">Add Offer</Link>
+                       
                     </div>
                     <div className="user-profile">
                         <FontAwesomeIcon icon={faUser} />
