@@ -1,30 +1,33 @@
-import React from 'react'
-import { UserNavbar } from './UserNavbar'
-import { Outlet } from 'react-router-dom'
+import React, { useState } from "react";
+import { UserNavbar } from "./UserNavbar";
+import { Outlet } from "react-router-dom";
 
 export const UserSidebar = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    console.log("toggleSidebar");
+    setSidebarOpen(!isSidebarOpen);
+  };
   return (
     <>
-    <UserNavbar />
-    <aside
-        className="app-sidebar bg-body-secondary shadow"
-        data-bs-theme="dark"
-      >
+      <UserNavbar toggleSidebar={toggleSidebar} />
+      <aside
+          className={`app-sidebar bg-body-secondary shadow ${
+            isSidebarOpen ? "open" : "d-none"
+          }`}
+          data-bs-theme="dark"
+        >
         <div className="sidebar-brand">
-          {/*begin::Brand Link*/}
           <a href="./index.html" className="brand-link">
-            {/*begin::Brand Image*/}
             <img
               src="../../dist/assets/img/AdminLTELogo.png"
-              alt="AdminLTE Logo"
+              // alt="AdminLTE Logo"
               className="brand-image opacity-75 shadow"
             />
-            {/*end::Brand Image*/}
-            {/*begin::Brand Text*/}
+
             <span className="brand-text fw-light">AdminLTE 4</span>
-            {/*end::Brand Text*/}
           </a>
-          {/*end::Brand Link*/}
         </div>
 
         <div
@@ -43,7 +46,6 @@ export const UserSidebar = () => {
           }}
         >
           <nav className="mt-2">
-            {/*begin::Sidebar Menu*/}
             <ul
               className="nav sidebar-menu flex-column"
               data-lte-toggle="treeview"
@@ -54,7 +56,7 @@ export const UserSidebar = () => {
                 <a href="#" className="nav-link active">
                   <i className="nav-icon bi bi-speedometer" />
                   <p>
-                    AddOffer
+                    Dashboard
                     <i className="nav-arrow bi bi-chevron-right" />
                   </p>
                 </a>
@@ -115,13 +117,12 @@ export const UserSidebar = () => {
                 </ul>
               </li>
             </ul>
-            {/*end::Sidebar Menu*/}
           </nav>
         </div>
       </aside>
-      <main className="app-main">
-          <Outlet ></Outlet>
+      <main class="app-main">
+        <Outlet></Outlet>
       </main>
     </>
-  )
-}
+  );
+};

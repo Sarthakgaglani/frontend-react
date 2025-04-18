@@ -126,6 +126,7 @@ const RestaurantHome = () => {
             <Link to="/resthome" className="nav-item">Home</Link>
             <Link to="/about" className="nav-item">About Us</Link>
             <Link to="/contact" className="nav-item">Contact Us</Link>
+            <Link to="/restform" className="nav-item">Add Restaurant</Link>
             <Link to="/hero" className="nav-item">Add Offer</Link>
             
           </div>
@@ -138,7 +139,7 @@ const RestaurantHome = () => {
         
         <h1 style={{fontSize:"57px"}}>Pocket Buddy</h1>
         <h2 style={{fontSize:"45px"}}>Restaurant Owners</h2>
-        <p style={{fontSize:"18px"}}>Find the best street food & restaurant deals near you!</p>
+        
         
       </div>
 

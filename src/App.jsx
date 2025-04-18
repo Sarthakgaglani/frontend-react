@@ -21,12 +21,21 @@ import { TopDeals } from "./components/Home/TopDeals";
 import { DealDetails } from "./components/Home/DealDetails";
 import { MyOffer } from "./components/Home/MyOffer";
 import { Landing } from "./components/Home/Landing";
-import {AdminDeleteOffer} from "./components/admin/AdminDeleteOffer";
-import { ManageOffer } from "./components/admin/ManageOffer";
+
 import { ResetPassword } from "./components/common/ResetPassword";
 import { Deals } from "./components/Home/Deals";
 import { IndianFood } from "./components/Home/IndianFood";
 import { RestaurantHome } from "./components/resturant/RestaurantHome";
+import { AddRestaurant } from "./components/resturant/AddRestaurant";
+import { AddOffer } from "./components/Home/AddOffer";
+import { Charts } from "./components/Home/Charts";
+import { AdminDashboard } from "./components/Admins/AdminDashboard";
+import ManageOffers  from "./components/Admins/ManageOffers";
+import ManageRestaurants  from "./components/Admins/ManageRestaurants";
+import  ManageUsers  from "./components/Admins/ManageUsers";
+import UpdateOffer from "./components/Admins/UpdateOffer";
+import Restaurant from "./components/resturant/Restaurant";
+import { RestSign } from "./components/resturant/RestSign";
 // import { Details } from "./components/Home/Details";
 
 // import { ContactUs } from "./components/Home/ContactUs";
@@ -59,14 +68,26 @@ function App() {
           <Route path="/deal/:id" element={<DealDetails/>}></Route>
           <Route path="/myoffers" element={<MyOffer/>}></Route>
           <Route path="/" element={<Landing/>}></Route>
-          <Route path="/delete" element={<AdminDeleteOffer/>}></Route>
+          {/* <Route path="/delete" element={<AdminDeleteOffer/>}></Route> */}
           {/* <Route path="/manageoffer" element={<ManageOffer/>}></Route> */}
-          <Route path="/manage-offers/:id" element={<ManageOffer/>}></Route>
+          {/* <Route path="/manage-offers/:id" element={<ManageOffer/>}></Route> */}
           <Route path="/resetpassword/:token" element={<ResetPassword/>}></Route>
           <Route path="/deals" element={<Deals/>}></Route>
           <Route path="/foodstalls" element={<IndianFood/>}></Route>
           <Route path="/resthome" element={<RestaurantHome/>}></Route>
-          
+          <Route path="/rest" element={<AddRestaurant/>}></Route>
+          {/* <Route path="/" element={<AddOffer/>}></Route> */}
+          <Route path="/useroffer" element={<AddOffer/>}></Route>
+          <Route path="/chart" element={<Charts/>}></Route>
+          <Route path="/admin/*" element={<AdminDashboard/>}></Route>
+          <Route path="/offers" element={<ManageOffers/>}></Route>
+          <Route path="/restaurants" element={<ManageRestaurants/>}></Route>
+          <Route path="/users" element={<ManageUsers/>}></Route>
+          <Route path="/update-offer/:id" element={<UpdateOffer/>}></Route>
+          <Route path="/restaurant" element={<Restaurant/>}></Route>
+          <Route path="/restsign" element={<RestSign/>}></Route>
+
+
         </Routes>
 
       </div>

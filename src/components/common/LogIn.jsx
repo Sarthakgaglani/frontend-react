@@ -1,5 +1,3 @@
-
-
       // import axios from "axios";
       // import React, { useState } from "react";
       // import { useForm } from "react-hook-form";
@@ -31,7 +29,16 @@
       
       //         setTimeout(() => {
       //           if (res.data.user.role === "Restaurant") {
-      //             navigate("/restform");
+      //             const isFirstTime = localStorage.getItem("first_time_restaurant");
+      
+      //             if (!isFirstTime) {
+      //               // First time logging in → Go to restform
+      //               localStorage.setItem("first_time_restaurant", "true");
+      //               navigate("/restform");
+      //             } else {
+      //               // Second time logging in → Go to hero
+      //               navigate("/resthome");
+      //             }
       //           } else if (res.data.user.role === "User") {
       //             navigate("/topdeals");
       //           } else if (res.data.user.role === "Admin") {
@@ -106,8 +113,6 @@
       //     </div>
       //   );
       // };
-      
-
 
       import axios from "axios";
       import React, { useState } from "react";
@@ -123,37 +128,32 @@
         const [email, setEmail] = useState("");
       
         const submitHandler = async (data) => {
-          console.log("Login Data: ", data);
-      
           try {
             const res = await axios.post("http://127.0.0.1:8000/user/login/", data);
-            console.log("API Response:", res.data);
-      
             if (res.status === 200) {
               toast.success("Login successful! Redirecting...", {
                 position: "top-center",
                 autoClose: 3000,
               });
       
+              // ✅ Save full user details
               localStorage.setItem("token", res.data.user.role.name);
               localStorage.setItem("role", res.data.user.role.name);
+              localStorage.setItem("user", JSON.stringify(res.data.user));
       
               setTimeout(() => {
                 if (res.data.user.role === "Restaurant") {
                   const isFirstTime = localStorage.getItem("first_time_restaurant");
-      
                   if (!isFirstTime) {
-                    // First time logging in → Go to restform
                     localStorage.setItem("first_time_restaurant", "true");
                     navigate("/restform");
                   } else {
-                    // Second time logging in → Go to hero
                     navigate("/resthome");
                   }
                 } else if (res.data.user.role === "User") {
                   navigate("/topdeals");
-                } else if (res.data.user.role === "Admin") {
-                  navigate("/delete");
+                } else if (res.data.user.role === "ADMIN") {
+                  navigate("/admin");
                 }
               }, 3000);
             } else {
@@ -167,26 +167,50 @@
       
         const forgotPasswordHandler = async (e) => {
           e.preventDefault();
-          console.log(email);
-      
           try {
             const res = await axios.post(`http://127.0.0.1:8000/forgot-password/?email=${email}`);
-            console.log(res.data);
             toast.success("Password reset link sent!");
           } catch (error) {
-            console.error("Forgot Password Error:", error.response?.data || error.message);
             toast.error("Failed to send password reset link. Try again.");
           }
         };
       
         const styles = {
-          body: { display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", width: "100vw", background: "#FFEBB7" },
+          body: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            width: "100vw",
+            background: "#FFEBB7",
+          },
           container: { textAlign: "center" },
-          card: { background: "#3498DB", padding: "30px", borderRadius: "12px", width: "100%", maxWidth: "400px", color: "white" },
+          card: {
+            background: "#3498DB",
+            padding: "30px",
+            borderRadius: "12px",
+            width: "100%",
+            maxWidth: "400px",
+            color: "white",
+          },
           formGroup: { display: "flex", flexDirection: "column", marginBottom: "15px" },
           label: { fontWeight: "bold" },
-          input: { padding: "10px", borderRadius: "5px", border: "none", fontSize: "1rem", width: "100%" },
-          button: { background: "#F39C12", color: "white", padding: "12px", fontSize: "1.1rem", borderRadius: "5px", width: "100%", cursor: "pointer" }
+          input: {
+            padding: "10px",
+            borderRadius: "5px",
+            border: "none",
+            fontSize: "1rem",
+            width: "100%",
+          },
+          button: {
+            background: "#F39C12",
+            color: "white",
+            padding: "12px",
+            fontSize: "1.1rem",
+            borderRadius: "5px",
+            width: "100%",
+            cursor: "pointer",
+          },
         };
       
         return (
@@ -218,10 +242,11 @@
                 </form>
               </div>
             </div>
-      
-            {/* Toast Notification */}
             <ToastContainer />
           </div>
         );
       };
+      
+
+
       

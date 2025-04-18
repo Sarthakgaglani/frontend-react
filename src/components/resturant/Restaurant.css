@@ -1,0 +1,148 @@
+.restaurant-registration {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    min-height: 100vh; /* Ensure the container takes full viewport height */
+    width: 100vw;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure full height */
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto; /* Allow vertical scrolling */
+  }
+  
+  .header {
+    background: url('../../assets/images/1row.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    min-height: 300px; /* Minimum height for header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Prevent header from shrinking */
+  }
+  
+  .header-content {
+    max-width: 800px; /* Limit content width for readability */
+  }
+  
+  .header-content p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .header-content h1 {
+    font-size: 36px;
+    margin: 10px 0;
+  }
+  
+  .header-content a {
+    color: #00c4cc;
+    text-decoration: none;
+  }
+  
+  .register-btn {
+    background-color: #00c4cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .register-btn:hover {
+    background-color: #00a1a7;
+  }
+  
+  .why-partner {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    flex: 1 0 auto; /* Allow section to grow and shrink */
+  }
+  
+  .why-partner h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .why-partner p {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+  
+  .partner-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  }
+  
+  .stat {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    text-align: center;
+    margin-bottom: 20px; /* Add margin for wrapping */
+  }
+  
+  .stat .icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  .how-it-works {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #e9f7f7;
+    flex: 1 0 auto; /* Allow section to grow and shrink */
+  }
+  
+  .how-it-works h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .steps {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  }
+  
+  .step {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    margin-bottom: 20px; /* Add margin for wrapping */
+  }
+  
+  .step-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .step h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .step p {
+    font-size: 14px;
+  }
